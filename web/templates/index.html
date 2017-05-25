@@ -1,12 +1,17 @@
-<html>
-    <head>
-        <title>Home page</title>
-    </head>
-    <body>
+{% extends "layout.html" %}
+{% block container %}
 
-        <button>
-            <a href="{{login_url}}">Log In</a>
-        </button>
-
-    </body>
-</html>
+<div class="container">
+    <div class="post-info">
+        <img class="post-img" src={{'/static/sample.jpg'}}  alt="Your post look like">
+        <h2 class="post-h2">
+            Create a quote that meatch to your personality
+        </h2>
+        <p class="post-info-txt"> This is how your post look like when you poat on facebook
+        </p>
+    </div>
+    <button class="publish-button">
+        <a class="button-link" href="{{login_url}}">Publish</a>
+    </button>
+</div>
+{% endblock %}
