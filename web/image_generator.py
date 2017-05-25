@@ -13,8 +13,8 @@ secure_random = random.SystemRandom()
 def quote_scraper(link):
     """
     Returns a list of quotes
-    """
     # base url is https://www.goodreads.com
+    """
     soup = BeautifulSoup(get(link).content, 'html.parser')
     raw_data = soup.select('.quoteText')
     quotes = []
@@ -42,6 +42,9 @@ def image_size(image):
         print("cannot create thumbnail")
 
 def resize_all_img():
+    """
+    Resize all images that in folder
+    """
     img_path = os.path.join(path, 'static/images/')
     image = os.listdir(img_path)
 
@@ -77,14 +80,14 @@ def generate_image(user):
     """
     Returns a complete image that could paste on Facebook
     """
-    user_image = Image.open('web/q.jpg')
-    resize = user_image.resize((170, 130))
+    user_image = Image.open('web/q1.jpg')
+    resize = user_image.resize((150, 120))
     background = random_img()
 
     img = Image.open(background)
     img.paste(resize, (20, 20))
-    font = ImageFont.truetype('/Library/Fonts/Arial.ttf', 25)
+    font = ImageFont.truetype('/Library/Fonts/Arial.ttf', 23)
     draw = ImageDraw.Draw(img)
     draw.text((25, 153), user, fill='black', font=font)
-    draw.text((220,10), random_quote(), fill='black', font=font)
+    draw.text((250,10), random_quote(), fill='black', font=font)
     img.save('sample.jpg')

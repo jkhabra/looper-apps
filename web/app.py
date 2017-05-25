@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, request
 import os.path
 import facebook
 
-from generate_image import generate_image
+from .image_generator import generate_image
 
 
 app = Flask(__name__)
@@ -36,16 +36,13 @@ def confirm_quote():
 
         return redirect('/confirm-quote')
 
-    image = generate_image()
+    image = generate_image('yo')
 
-    return render_template('confirm_quote.html', image=image)
+    if request.post_image == 'yes':
+        graph = facebook.GraphAPI(access_token=token)
+        # post = graph.put_object(parent_object='me', connection_name='feed', message='Hello!')
+        img_path = os.path.dirname(__file__)
+        image = os.path.join(img_path, './static/images/45.jpg')
+        img = graph.put_photo(image=open(image, 'rb').read(), message='Look at this cool flash drive!')
 
-    return app.config.get('fb_token')
-
-# TODO: Create new route /post-image-to-facebook
-
-    # graph = facebook.GraphAPI(access_token=token)
-    # post = graph.put_object(parent_object='me', connection_name='feed', message='Hello!')
-    # img_path = os.path.dirname(__file__)
-    # image = os.path.join(img_path, './static/images/45.jpg')
-    # img = graph.put_photo(image=open(image, 'rb').read(), message='Look at this cool flash drive!')
+    return render_template('confirm_quote.html')
