@@ -1,11 +1,11 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, session, jsonify
+from .fb import get_graph, get_user_data
 import os.path
-import facebook
-
-from .image_generator import generate_image
-
+from .image_generator import generate_image, user_img
 
 app = Flask(__name__)
+
+app.config.update(dict(SECRET_KEY='A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'))
 
 app_id = "1854877241500808"
 redirect_uri = "http://localhost:5000/accept-fb-token"
@@ -32,17 +32,19 @@ def confirm_quote():
 
     if request.args.get('access_token'):
         token = request.args.get('access_token')
-        app.config['fb_token'] = token
+        session['fb_token'] = token
 
         return redirect('/confirm-quote')
+    data = get_user_data()
+    user_name = data['name']
+    image_data = data.get('picture').get('data')
+    user_image = user_img(image_data['url'])
+    image = generate_image(user_name, user_image)
 
-    image = generate_image('yo')
-
-    if request.post_image == 'yes':
-        graph = facebook.GraphAPI(access_token=token)
-        # post = graph.put_object(parent_object='me', connection_name='feed', message='Hello!')
-        img_path = os.path.dirname(__file__)
-        image = os.path.join(img_path, './static/images/45.jpg')
-        img = graph.put_photo(image=open(image, 'rb').read(), message='Look at this cool flash drive!')
-
-    return render_template('confirm_quote.html')
+    if request.args.get('post_image') == 'yes':
+        graph = get_graph()
+        img = graph.put_photo(image=open(image, 'rb').read(), message='Find out which quote matches to your personality')
+   # if request.args.get('post_image') == 'no':
+        #return render_template('receive_fb_token.html')
+    #    return redirect('/confirm-quote')
+    return render_template('confirm_quote.html', quote_image=image)

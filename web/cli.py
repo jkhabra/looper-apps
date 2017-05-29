@@ -8,5 +8,5 @@ def web():
     """
     Run the web server
     """
-    print('running server...........')
+    print('Running server...')
     app.run(debug=True)
