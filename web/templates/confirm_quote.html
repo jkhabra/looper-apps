@@ -1,12 +1,6 @@
-<html>
-    <head>
-        <title>Sucessfull</title>
-    </head>
-    <body>
-        <h1>Your image has been posted to your profile</h1>
-
-        <img src="{{ quote_image }}" />
-
+{% extends "layout.html" %}
+{%block container %}
+       <img class="post-img" src={{'/static/tem/sample.jpg'}}  alt="Your post look like">
+       <a href="/confirm-quote?post_image=no">Try again</a>
         <a href="/confirm-quote?post_image=yes">Post on Facebook</a>
-    </body>
-</html>
+{% endblock %}
