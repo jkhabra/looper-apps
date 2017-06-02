@@ -1,10 +1,9 @@
 from PIL import ImageFont, Image, ImageDraw, ImageColor
 from bs4 import BeautifulSoup
 from requests import get
+import os.path, re
 import random
 import textwrap
-import re
-import os.path
 import wget
 import webcolors
 
@@ -12,7 +11,7 @@ path = os.path.dirname(__file__)
 quote_path = os.path.join(path, 'static/quotes.txt')
 secure_random = random.SystemRandom()
 
-def quote_scraper(link):
+def quote_scraper(link='https://www.goodreads.com'):
     """
     Returns a list of quotes
     # base url is https://www.goodreads.com
@@ -23,7 +22,9 @@ def quote_scraper(link):
 
     for i in raw_data:
         quote = i.text.strip().split('\n')
-        quotes.append(quote[0]+'~')
+        print('downloading quotes........')
+        if len(quote[0]) <= 130:
+            quotes.append(quote[0]+'~')
 
     with open(quote_path, 'a+') as foo:
         for i in quotes:
@@ -112,7 +113,8 @@ def image_colour(img):
 
     rgb_colour  = (r_total/count, g_total/count, b_total/count)
 
-    closest_name = rgb_to_hex(rgb_colour)
+    #closest_name = rgb_to_hex(rgb_colour)
+    closest_name = get_colour_name(rgb_colour)
     return closest_name
 
 
@@ -139,9 +141,19 @@ def rgb_to_hex(rgb):
         my_hex = my_hex[1:]
         rgb = (my_hex[0:2], my_hex[2:4], my_hex[4:6])
         #rgb = (r,g,b)
-        comp = ['%02X' % (255 - int(a, 16)) for a in rgb]
+        comp = ['%02X' % (290 - int(a, 16)) for a in rgb] #255,16
         return '#' + ''.join(comp)
     return hex
+
+def opposite_color(color):
+    if color == 'white' or color == 'snow'  or color == 'silver':
+        return '#000000'
+    if color =='gray' or color == 'navy' or color == 'black':
+        return  '#FFFFFF'
+    if color == 'olive':
+        return '#9d6da7'
+    else:
+        return '#ffb5da'
 
 def random_quote():
     """
@@ -152,26 +164,50 @@ def random_quote():
 
     random_quote = quote.strip().split('~')
     #return '\n'.join(line.strip() for line in re.findall(r'.{1,26}(?:\s+|$)', secure_random.choice(random_quote)))
-    return textwrap.fill(secure_random.choice(random_quote), 25)
+    #dedented_text = textwrap.dedent(secure_random.choice(random_quote)).strip()
+    text = secure_random.choice(random_quote)
+    if len(text) <= 55:
+        t = textwrap.wrap(text, 50)
+        return '\n\t'.join(t)
+    elif len(text) <= 75:
+        t = textwrap.wrap(text, 28)
+        return '\n\t'.join(t)
+    else:
+        t = textwrap.wrap(text, 38)
+        return '\n\t'.join(t)
+    #return textwrap.fill(dedented_text, 45)
 
-def generate_image(user_name, user_image):
+def generate_quote_image(user_id, user_name, user_image):
     """
     Returns a complete image that could paste on Facebook
     """
-    user_image = Image.open('web/static/tem/user.jpg')
-    resize = user_image.resize((150, 120))
+    profile_id = user_id[2:]
+    wget.download(user_image, out='web/static/tem/{}.jpg'.format(profile_id))
+
+    image = Image.open('web/static/tem/{}.jpg'.format(profile_id))
+    #image = Image.open('web/static/tem/user.jpg')
+    resize = image.resize((150, 120))
     background = get_random_img()
+    color = opposite_color(background[1])
 
     img = Image.open(background[0])
-    img.paste(resize, (20, 20))
-    font = ImageFont.truetype('web/static/fonts/helvetica-normal.ttf', 25)
-    #font = ImageFont.truetype('/Library/Fonts/Arial.ttf', 23)
+    img.paste(resize, (20, 190))
+    font = ImageFont.truetype('web/static/fonts/OstrichSans-Black.ttf', 27)
+
     draw = ImageDraw.Draw(img)
-    draw.text((20, 153), user_name, fill=background[1], font=font)
-    draw.text((250,10), random_quote(), fill=background[1], font=font)
-    img.save('web/static/tem/sample.jpg')
-    image = os.path.abspath('web/static/tem/sample.jpg')
+    draw.text((180, 280), user_name, fill=color, font=font)
+    draw.text((25,10), random_quote(), fill=color, font=font)
+
+    img.save('web/static/tem/{}.jpg'.format(user_id))
+    image = os.path.abspath('web/static/tem/{}.jpg'.format(user_id))
     return image
 
-def user_img(url):
-     wget.download(url, out= 'web/static/tem/user'+'.jpg')
+def remove_quote_image(folder='web/static/tem'):
+    pattern = '.jpg'
+    folder = os.path.abspath(folder)
+    try:
+        for f in os.listdir(folder):
+            if re.search(pattern, f):
+                os.remove(os.path.join(folder, f))
+    except Exception as error:
+        print('File does not exist {}'.format(error))
