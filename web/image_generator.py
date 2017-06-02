@@ -148,10 +148,8 @@ def rgb_to_hex(rgb):
 def opposite_color(color):
     if color == 'white' or color == 'snow'  or color == 'silver':
         return '#000000'
-
     if color == 'olive':
         return '#9d6da7'
-    
     else:
         return '#FFFFFF' #'#ffb5da'
 
@@ -197,9 +195,13 @@ def generate_quote_image(user_id, user_name, user_image):
     Returns a complete image that could paste on Facebook
     """
     profile_id = user_id[2:]
-    wget.download(user_image, out='web/static/tem/{}.jpg'.format(profile_id))
+    path = 'web/static/user_image/{}.jpg'.format(profile_id)
 
-    image = round_img('web/static/tem/{}.jpg'.format(profile_id))
+    if not os.path.exists(path):
+        wget.download(user_image, out=path)
+
+    image = round_img(path)
+
     background = get_random_img()
     color = opposite_color(background[1])
 
