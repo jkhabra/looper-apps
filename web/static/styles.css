@@ -7,12 +7,13 @@
 }
 
 .nav-bar {
-    width: 100%;
-    background-color: #ffffff;
-    list-style-type: none;
-    overflow: hidden;
-    border-bottom: 1px solid gainsboro;
-}
+  width: 100%;
+  background-color: #3b3f3f;
+  list-style-type: none;
+  height: 50px;
+  transition: all 0.2s;
+  border-bottom: 5px solid #C75575;
+    }
 
 .nav-items{
     float: right;
@@ -21,63 +22,73 @@
 
 .nav-links{
     display: inline-block;
-    color: #352e2e;
+    color: #fff;
     text-align: center;
-    padding: 20px 15px;
+    position: relative;
+    padding: 13px 10px;
     text-decoration: none;
 }
 
 .nav-links:hover{
     text-decoration: none;
-    background-color: rgba(45, 42, 42, 0.68);
+    background-color: #a7a7a7;
     color: #fff;
 }
 
+.footer {
+    border-top: 1px solid #c75575;
+    width: 100%;
+    height: 50px;
+    background: #3b3f3f;
+    color: #fff;
+    padding: 25px;
+    font-size: 13px;
+}
+
+/* styles of index template*/
 .container {
     background-color: initial;
     padding-top: 15px;
     height: 90%;
+    padding-top: 60px;
 }
 
 .post-info {
     border: 1px solid gainsboro;
-    width: 552px;
-    height: 432px;
-    margin-left: 50px;
-}
-
-.post-img {
-    border-bottom: 1px solid gainsboro;
+    background-color: #fdf3f6;
+    width: 650px;
+    height: 340px;
+    margin-left: 80px;
 }
 
 .post-h2 {
     font-size: x-large;
     font-family: sans-serif;
-    margin-left: 4px;
+    text-align: center;
     padding: 10px 0px 27px 0px
 }
 
-.post-info-txt {
-    margin-left: 5px;
-}
-
 .publish-button {
-    background-color: #fff;
-	  border-radius: 3px;
-	  border: 1px solid gainsboro;
-	  cursor: pointer;
-	  font-family: Arial;
-	  font-size: 13px;
-	  padding: 10px 25px;
 	  text-decoration: none;
-	  text-shadow: 0px 1px 0px #2f6627;
-    margin-top: 10px;
-    margin-left: 50px;
+    color: #fff;
+    background-color: #c75575;
+    border-radius: 4px;
+    border: 1px solid #c75575;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 18px;
+    padding: 14px 27px;
+    text-decoration: none;
+    margin-left: 205;
+    margin-top: 30;
+
 }
 
 .publish-button:hover {
-    background-color: rgba(45, 42, 42, 0.68);
-    color: #fff
+  background-color: #C75579;
+  color: #fff;
+  border: 1px solid gainsboro;
+  text-shadow: 0px 1px 0px #00000
 }
 
 .publish-button:active {
@@ -85,21 +96,27 @@
 	  top: 1px;
 }
 
-.button-link{
-    text-decoration: none;
-    color: #352e2e;
+/* styles of confirm_quote template*/
+
+.display-img{
+  /* border: 1px solid gainsboro;*/
+  width: 576px;
+  height: 410px;
+  margin-left: 80px;
+ // margin: auto;
 }
 
-.button-link:hover, .publish-button:hover{
-    color: #fff;
-    cursor: pointer;
+.post-img {
+  //border-bottom: 2px solid gainsboro;
+  margin-bottom: 30px;
+  padding: 5px;
 }
 
-.footer {
-    background-color: #ffffff;
-    border-top: 1px solid gainsboro;
-    width: 100%;
-    color: black;
-    padding: 25px;
-    font-size: 13px;
+.try-again, .publish {
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+  background-color: #c75575;
+  padding: 9px 20px 9px 20px;
 }
