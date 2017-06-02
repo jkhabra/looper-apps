@@ -54,7 +54,7 @@ def confirm_quote():
 
     if request.args.get('post_image') == 'yes':
         graph = get_graph()
-        img = graph.put_photo(image=open(sessino.get('quote_image'), 'rb').read(), message='Find out which quote matches to your personality')
+        img = graph.put_photo(image=open(session.get('quote_image'), 'rb').read(), message='Find out which quote matches to your personality')
 
         return redirect('/')
 

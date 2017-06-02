@@ -1,4 +1,4 @@
-from PIL import ImageFont, Image, ImageDraw, ImageColor
+from PIL import ImageFont, Image, ImageDraw, ImageColor, ImageOps
 from bs4 import BeautifulSoup
 from requests import get
 import os.path, re
@@ -23,7 +23,7 @@ def quote_scraper(link='https://www.goodreads.com'):
     for i in raw_data:
         quote = i.text.strip().split('\n')
         print('downloading quotes........')
-        if len(quote[0]) <= 130:
+        if len(quote[0]) <= 180:
             quotes.append(quote[0]+'~')
 
     with open(quote_path, 'a+') as foo:
@@ -34,7 +34,7 @@ def image_size(image):
     """
     Return resized image
     """
-    size = 560, 450
+    size = 650, 360
     img = image
 
     try:
@@ -148,12 +148,12 @@ def rgb_to_hex(rgb):
 def opposite_color(color):
     if color == 'white' or color == 'snow'  or color == 'silver':
         return '#000000'
-    if color =='gray' or color == 'navy' or color == 'black':
-        return  '#FFFFFF'
+
     if color == 'olive':
         return '#9d6da7'
+    
     else:
-        return '#ffb5da'
+        return '#FFFFFF' #'#ffb5da'
 
 def random_quote():
     """
@@ -163,19 +163,34 @@ def random_quote():
         quote = foo.read()
 
     random_quote = quote.strip().split('~')
-    #return '\n'.join(line.strip() for line in re.findall(r'.{1,26}(?:\s+|$)', secure_random.choice(random_quote)))
-    #dedented_text = textwrap.dedent(secure_random.choice(random_quote)).strip()
     text = secure_random.choice(random_quote)
-    if len(text) <= 55:
-        t = textwrap.wrap(text, 50)
+
+    if len(text) <= 65:
+        t = textwrap.wrap(text, 60)
         return '\n\t'.join(t)
     elif len(text) <= 75:
-        t = textwrap.wrap(text, 28)
+        t = textwrap.wrap(text, 30)
+        return '\n\t'.join(t)
+    elif len(text) <= 130:
+        t = textwrap.wrap(text, 30)
         return '\n\t'.join(t)
     else:
-        t = textwrap.wrap(text, 38)
+        t = textwrap.wrap(text, 35)
         return '\n\t'.join(t)
-    #return textwrap.fill(dedented_text, 45)
+
+def round_img(image):
+    im = Image.open(image)
+    im = im.resize((120, 120));
+    bigsize = (im.size[0] * 3, im.size[1] * 3)
+    mask = Image.new('L', bigsize, 0)
+    draw = ImageDraw.Draw(mask) 
+    draw.ellipse((0, 0) + bigsize, fill=255)
+    mask = mask.resize(im.size, Image.ANTIALIAS)
+    im.putalpha(mask)
+    return im
+    output = ImageOps.fit(im, mask.size, centering=(0.5, 0.5))
+    output.putalpha(mask)
+    output.save('web/static/tem/{}.png'.format(user_id))
 
 def generate_quote_image(user_id, user_name, user_image):
     """
@@ -184,18 +199,16 @@ def generate_quote_image(user_id, user_name, user_image):
     profile_id = user_id[2:]
     wget.download(user_image, out='web/static/tem/{}.jpg'.format(profile_id))
 
-    image = Image.open('web/static/tem/{}.jpg'.format(profile_id))
-    #image = Image.open('web/static/tem/user.jpg')
-    resize = image.resize((150, 120))
+    image = round_img('web/static/tem/{}.jpg'.format(profile_id))
     background = get_random_img()
     color = opposite_color(background[1])
 
     img = Image.open(background[0])
-    img.paste(resize, (20, 190))
+    img.paste(image, (20, 210), image)
     font = ImageFont.truetype('web/static/fonts/OstrichSans-Black.ttf', 27)
 
     draw = ImageDraw.Draw(img)
-    draw.text((180, 280), user_name, fill=color, font=font)
+    draw.text((10, 330), user_name, fill=color, font=font)
     draw.text((25,10), random_quote(), fill=color, font=font)
 
     img.save('web/static/tem/{}.jpg'.format(user_id))
