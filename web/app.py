@@ -1,7 +1,8 @@
 from flask import Flask, render_template, redirect, request, session, jsonify
 from .fb import get_graph, get_user_data
 import os.path
-from .image_generator import generate_image, user_img
+from .image_generator import generate_quote_image, remove_quote_image
+import time
 
 app = Flask(__name__)
 
@@ -19,32 +20,43 @@ def home():
                 + '&response_type=token' \
                 + '&scope=public_profile,publish_actions,user_friends,email'
 
+    session['quote_image'] = None
+    remove_quote_image()
     return render_template('index.html', login_url=login_url)
 
 
 @app.route('/accept-fb-token')
 def accept_fb_token():
+    if request.args.get('access_token'):
+        session['fb_token'] = request.args.get('access_token')
+
+        return redirect('/confirm-quote')
+
     return render_template('receive_fb_token.html')
 
 @app.route('/confirm-quote')
 def confirm_quote():
-    token = None
+    data = get_user_data()
+    user_id = data['id']
+    user_name = data['name']
+    user_image = data.get('picture').get('data').get('url')
 
-    if request.args.get('access_token'):
-        token = request.args.get('access_token')
-        session['fb_token'] = token
+    if not session.get('quote_image'):
+        session['quote_image']= generate_quote_image(user_id, user_name, user_image)
+        print(session.get('quote_image'))
+
+    if request.args.get('post_image') == 'no':
+        print('REFRESHING QUOTE IMAGE')
+        session['quote_image'] = None
+        remove_quote_image()
 
         return redirect('/confirm-quote')
-    data = get_user_data()
-    user_name = data['name']
-    image_data = data.get('picture').get('data')
-    user_image = user_img(image_data['url'])
-    image = generate_image(user_name, user_image)
 
     if request.args.get('post_image') == 'yes':
         graph = get_graph()
-        img = graph.put_photo(image=open(image, 'rb').read(), message='Find out which quote matches to your personality')
-   # if request.args.get('post_image') == 'no':
-        #return render_template('receive_fb_token.html')
-    #    return redirect('/confirm-quote')
-    return render_template('confirm_quote.html', quote_image=image)
+        img = graph.put_photo(image=open(sessino.get('quote_image'), 'rb').read(), message='Find out which quote matches to your personality')
+
+        return redirect('/')
+
+    return render_template('confirm_quote.html', user_id=user_id, random_str=str(time.time()))
+
