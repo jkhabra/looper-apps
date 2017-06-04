@@ -10,10 +10,22 @@
                     <a class="nav-links" href="/"> Looper Apps</a>
                 </li>
                 <li class="nav-items">
-                    <a class="nav-links" href="/">About us</a>
+                  <a class="nav-links" href="/">About us</a>
                 </li>
             </ul>
         </nav>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+        <ul class=flashes>
+          {% for message in messages %}
+          <li class='message'>{{ message }}</li>
+          {% endfor %}
+        </ul>
+
+        {% endif %}
+        {% endwith %}
+
         <div class='container'>
         {% block container %}
         {% endblock %}
