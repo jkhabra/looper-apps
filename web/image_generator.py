@@ -1,4 +1,5 @@
 from PIL import ImageFont, Image, ImageDraw, ImageColor, ImageOps
+from ast import literal_eval as make_tuple
 from bs4 import BeautifulSoup
 from requests import get
 import os.path, re
@@ -34,7 +35,7 @@ def image_size(image):
     """
     Return resized image
     """
-    size = 650, 360
+    size = 1000, 1080
     img = image
 
     try:
@@ -71,7 +72,7 @@ def img_file():
             t = (img_path+i, image_colour(img_path+i))
             img_list.append(t)
 
-    with open('web/static/images/img_color.txt', 'w') as foo:
+    with open('web/static/images/img_color.txt', 'a+') as foo:
         f = foo.write('\n'.join('{}~{}'.format(*x) for x in img_list))
     print('<<<<<<<<<<<<<<<<<<<<Work is done here>>>>>>>>>>>>>>>')
 
@@ -82,12 +83,11 @@ def get_random_img():
     with open('web/static/images/img_color.txt', 'r') as foo:
         f = foo.read()
 
-    image = f.split('\n')
+    image = f.strip().split('\n')
     l = []
 
     for i in image:
-        t = i.split('~')
-        l.append((t[0], t[1]))
+        l.append(i.strip().split('~'))
 
     return secure_random.choice(l)
 
@@ -163,22 +163,19 @@ def random_quote():
     random_quote = quote.strip().split('~')
     text = secure_random.choice(random_quote)
 
-    if len(text) <= 65:
-        t = textwrap.wrap(text, 60)
-        return '\n\t'.join(t)
-    elif len(text) <= 75:
-        t = textwrap.wrap(text, 30)
+    if len(text) <= 85:
+        t = textwrap.wrap(text, 85)
         return '\n\t'.join(t)
     elif len(text) <= 130:
-        t = textwrap.wrap(text, 30)
+        t = textwrap.wrap(text, 60)
         return '\n\t'.join(t)
     else:
-        t = textwrap.wrap(text, 35)
+        t = textwrap.wrap(text, 55)
         return '\n\t'.join(t)
 
 def round_img(image):
     im = Image.open(image)
-    im = im.resize((120, 120));
+    im = im.resize((100, 100));
     bigsize = (im.size[0] * 3, im.size[1] * 3)
     mask = Image.new('L', bigsize, 0)
     draw = ImageDraw.Draw(mask) 
@@ -203,15 +200,21 @@ def generate_quote_image(user_id, user_name, user_image):
     image = round_img(path)
 
     background = get_random_img()
+    image_dimension = make_tuple(background[2])
+    defines_dimension = make_tuple(background[3])
+    name_dimension = make_tuple(background[4])
+    quote_dimension = make_tuple(background[5])
     color = opposite_color(background[1])
 
     img = Image.open(background[0])
-    img.paste(image, (20, 210), image)
-    font = ImageFont.truetype('web/static/fonts/OstrichSans-Black.ttf', 27)
+    img.paste(image, (image_dimension), image)
+    font = ImageFont.truetype('web/static/fonts/OstrichSans-Black.ttf', 30)
+    font_for_user = ImageFont.truetype('web/static/fonts/OstrichSans-Black.ttf', 25)
 
     draw = ImageDraw.Draw(img)
-    draw.text((10, 330), user_name, fill=color, font=font)
-    draw.text((25,10), random_quote(), fill=color, font=font)
+    draw.text((defines_dimension), 'Quote that Describes', fill=color, font=ImageFont.truetype('web/static/fonts/OstrichSans-Black.ttf', 22) )
+    draw.text((name_dimension), user_name, fill=color, font=font_for_user)
+    draw.text((quote_dimension), random_quote(), fill=color, font=font)
 
     img.save('web/static/tem/{}.jpg'.format(user_id))
     image = os.path.abspath('web/static/tem/{}.jpg'.format(user_id))
