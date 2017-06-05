@@ -99,18 +99,18 @@
 /* styles of confirm_quote template*/
 
 .display-img{
-  /* border: 1px solid gainsboro;*/
+  border: 1px solid gainsboro;
+  position: relative;
   width: 670px;
-  height: 445px;
+  margin-bottom: 20px;
+  height: 378;
   margin-left: 80px;
  // margin: auto;
 }
 
 .post-img {
   //border-bottom: 2px solid gainsboro;
-  margin-bottom: 30px;
-  padding: 5px;
-  width: 110%;
+  width: 100%;
 }
 
 .try-again, .publish {
@@ -120,6 +120,21 @@
   border-radius: 3px;
   background-color: #c75575;
   padding: 9px 20px 9px 20px;
+}
+
+.again{
+  margin-left: 80px;
+}
+.spinner{
+  margin: auto;
+  margin-top: 200px;
+  border: 5px solid #c75579;
+  border-bottom: 5px solid #e2e8ec;
+  border-top: 6px solid #e2e8ec;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
 }
 
 /* receive_fb_token */
@@ -206,26 +221,24 @@
 /* style of success template */
 
 .quote-img {
-  width: 77%;
-  height: 95%;
+  width: 800px;
+  height: 450px;
   margin: auto;
+  margin-bottom: 15px;
+  border: 1px solid gainsboro;
 }
 .on-fb-img {
-  height: 90%;
-  padding: 4px;
+  width: 100%;
 }
 .quote-again{
   text-decoration: none;
   color: #fff;
   border: 1px solid gainsboro;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #c75575;
   padding: 9px 20px 9px 20px;
-  float: right;
-  margin-right: 182px;
-  margin-top: -10px;
+
 }
 .fb-link{
-  font-weight: initial;
-  ont-family: monospac;
+  margin-left: 238px;
 }
