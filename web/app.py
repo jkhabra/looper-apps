@@ -9,13 +9,13 @@ app = Flask(__name__)
 app.config.update(dict(SECRET_KEY='A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'))
 
 app_id = "1854877241500808"
-redirect_uri = "http://localhost:5000/accept-fb-token"
+redirect_uri = 'http://looperapps.herokuapp.com/accept-fb-token'
 
 @app.route('/')
 def home():
     login_url = 'https://www.facebook.com/v2.9/dialog/oauth?' \
                 + 'client_id=1854877241500808' \
-                + '&redirect_uri=http://localhost:5000/accept-fb-token' \
+                + '&redirect_uri=http://looperapps.herokuapp.com/accept-fb-token' \
                 + '&state=randomstring123' \
                 + '&response_type=token' \
                 + '&scope=public_profile,publish_actions,user_friends,email'
