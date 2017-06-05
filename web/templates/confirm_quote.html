@@ -1,8 +1,23 @@
 {% extends "layout.html" %}
 {%block container %}
-   <div class='display-img'>
-     <img class="post-img" src={{'static/tem/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
-       <a class='try-again' href="/confirm-quote?post_image=no">Create another one</a>
-       <a class='publish' href="/confirm-quote?post_image=yes">Publish on Facebook</a>
-   </div>
+<div class='display-img'>
+  <div class='spinner' style='display:none'></div>
+  <div class ='hidden'>
+    <img class="post-img" src={{'static/tem/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
+  </div>
+</div>
+<a class='try-again again' href="/confirm-quote?post_image=no">Create another one</a>
+<a class='publish' href="/confirm-quote?post_image=yes">Publish on Facebook</a>
+
+<script>
+
+ document.querySelector('.try-again').onclick = function fun() {
+   document.querySelector('.hidden').style.display ='none';
+   document.querySelector('.spinner').style.display = '';
+ };
+ document.querySelector('.publish').onclick = function fun() {
+   document.querySelector('.hidden').style.display ='none';
+   document.querySelector('.spinner').style.display = '';
+ };
+</script>
 {% endblock %}
