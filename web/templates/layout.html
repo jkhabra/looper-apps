@@ -1,37 +1,37 @@
 <html>
-    <head>
-        <title>Home page</title>
-        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
-    </head>
-    <body>
-        <nav>
-            <ul class='nav-bar'>
-                <li style="float:left">
-                    <a class="nav-links" href="/"> Looper Apps</a>
-                </li>
-                <li class="nav-items">
-                  <a class="nav-links" href="/">About us</a>
-                </li>
-            </ul>
-        </nav>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
+  <head>
+    <title>Home page</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <nav>
+      <ul class='nav-bar'>
+        <li style="float:left">
+          <a class="nav-links" href="/"> Looper Apps</a>
+        </li>
+        <li class="nav-items">
+          <a class="nav-links" href="/">About us</a>
+        </li>
+      </ul>
+    </nav>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
 
-        <ul class=flashes>
-          {% for message in messages %}
-          <li class='message'>{{ message }}</li>
-          {% endfor %}
-        </ul>
+    <ul class=flashes>
+      {% for message in messages %}
+      <li class='message'>{{ message }}</li>
+      {% endfor %}
+    </ul>
 
-        {% endif %}
-        {% endwith %}
+    {% endif %}
+    {% endwith %}
 
-        <div class='container'>
-        {% block container %}
-        {% endblock %}
-        </div>
-        <footer class='footer'>
-            &copy;2017
-        </footer>
-    </body>
+    <div class='container'>
+      {% block container %}
+      {% endblock %}
+    </div>
+    <footer class='footer'>
+      &copy;2017
+    </footer>
+  </body>
 </html>
