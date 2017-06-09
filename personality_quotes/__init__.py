@@ -1,0 +1,1 @@
+from personality_quotes.app import personality_quote
