@@ -6,35 +6,6 @@ from images import remove_image, get_graph
 
 personality_quote  = Blueprint('personality_quote', __name__, template_folder='templates', static_folder='static')
 
-app_id = "1854877241500808"
-#redirect_uri = 'https://looperapps.herokuapp.com/accept-fb-token'
-redirect_uri = 'http://localhost:5000/personality-quote/accept-fb-token'
-
-
-@personality_quote.route('/home')
-def home():
-    login_url = 'https://www.facebook.com/v2.9/dialog/oauth?' \
-                + 'client_id=1854877241500808' \
-                + '&redirect_uri=' + redirect_uri \
-                + '&state=randomstring123' \
-                + '&response_type=token' \
-                + '&scope=public_profile,publish_actions,user_friends,email'
-
-    session['quote_image'] = None
-    remove_image()
-    remove_image('personality_quotes/static/user_image')
-    return render_template('personality_quote/index.html', login_url=login_url)
-
-
-@personality_quote.route('/accept-fb-token')
-def accept_fb_token():
-    if request.args.get('access_token'):
-        session['fb_token'] = request.args.get('access_token')
-
-        return redirect('/personality-quote/confirm-quote')
-
-    return render_template('personality_quote/receive_fb_token.html')
-
 
 @personality_quote.route('/confirm-quote')
 def confirm_quote():

@@ -1,13 +1,9 @@
 /Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/1.jpg~maroon
 /Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/10.jpg~black
-/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/12.jpg~black
-/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/14.jpg~black
 /Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/15.jpg~navy
-/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/19.jpg~gray
-/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/2.jpg~black
-/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/20.jpg~black
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/9.jpg~gray
 /Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/3.jpg~black
-/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/images/5.jpg~teal
+
 
 
 

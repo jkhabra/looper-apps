@@ -1,3 +1,21 @@
-/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/1.jpg~John Cena
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/1.png~randy orton~(500,530)~(575,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/2.png~Goldberg~(550,530)~(525,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/3.png~stone cold~(450,530)~(560,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/4.png~Seth Rollins~(500,530)~(540,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/5.png~Roman Reigns~(550,530)~(545,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/6.png~Bautista~(300,530)~(703,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/7.png~edge~(570,530)~(560,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/8.png~The rock~(350,530)~(650,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/9.png~Big show~(450,520)~(580,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/10.png~Brock Lesnar~(480,520)~(570,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/11.png~ The Undertaker~(450,515)~(585,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/12.png~John cena~(420,520)~(585,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/13.png~Chris Jericho~(360,530)~(640,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/14.png~Triple H~(560,530)~(550,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/15.png~Kurt Angle~(500,530)~(630,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/16.png~rey mysterio~(430,530)~(570,50)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/wrestlers/17.png~shon mickle~(320,530)~(683,50)
+
+
 
 

@@ -1,4 +1,4 @@
-{% extends "personality_quote/layout.html" %}
+{% extends "match_maker/layout.html" %}
 {%block container %}
 <div class='display-img'>
   <div class='spinner' style='display:none'></div>
@@ -6,8 +6,8 @@
     <img class="post-img" src={{'static/temp/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
   </div>
 </div>
-<a class='try-again again' href="/match_maker/confirm-quote?post_image=no">Create another one</a>
-<a class='publish' href="/match_maker/confirm-quote?post_image=yes">Publish on Facebook</a>
+<a class='try-again again' href="/match_maker/confirm-pic?post_image=no">Create another one</a>
+<a class='publish' href="/match_maker/confirm-pic?post_image=yes">Publish on Facebook</a>
 
 <script>
 
