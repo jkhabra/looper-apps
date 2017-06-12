@@ -54,11 +54,21 @@
 }
 
 .post-info {
-    border: 1px solid gainsboro;
-    background-color: #fdf3f6;
-    width: 500px;
-    margin-left: 80px;
-    margin-bottom: 40px;
+    margin-left: 20px;
+    float: left;
+}
+
+.pro{
+  margin-left: 80px;
+}
+.wwe, .pro {
+  width: 400px;
+  height: 200px;
+}
+
+.demo-img {
+  width: 400px;
+  height: 200px;
 }
 
 .button-link {
