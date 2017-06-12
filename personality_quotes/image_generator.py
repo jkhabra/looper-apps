@@ -6,7 +6,7 @@ import os.path, re
 import textwrap
 import random
 import wget
-from images import round_img
+from images import round_img, remove_image
 
 
 path = os.path.dirname(__file__)
@@ -98,11 +98,12 @@ def generate_quote_image(user_id, user_name, user_image):
 
     img = Image.open(background[0])
     img.paste(image, (image_dimension), image)
-    font = ImageFont.truetype('personality_quotes/static/fonts/OstrichSans-Black.ttf', 35)
-    font_for_user = ImageFont.truetype('personality_quotes/static/fonts/OstrichSans-Black.ttf', 27)
+    f = 'personality_quotes/static/fonts/OstrichSans-Black.ttf'
+    font = ImageFont.truetype(f, 35)
+    font_for_user = ImageFont.truetype(f, 27)
 
     draw = ImageDraw.Draw(img)
-    draw.text((defines_dimension), 'Quote that Describes', fill=color, font=ImageFont.truetype('personality_quotes/static/fonts/OstrichSans-Black.ttf', 22) )
+    draw.text((defines_dimension), 'Quote that Describes', fill=color, font=ImageFont.truetype(f, 22) )
     draw.text((name_dimension), user_name, fill=color, font=font_for_user)
     draw.text((quote_dimension), random_quote(), fill=color, font=font)
 
