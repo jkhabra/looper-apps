@@ -9,8 +9,13 @@
         <li style="float:left">
           <a class="nav-links" href="/"> Looper Apps</a>
         </li>
+
         <li class="nav-items">
-          <a class="nav-links" href="{{login_url}}">Login</a>
+          {% if session['fb_token'] == None %}
+          <a class="nav-links" href="{{login_url}}">LogIn</a>
+          {% else %}
+          <a class="nav-links" href="{{home.logout}}">Log Out</a>
+          {% endif %}
         </li>
         <li class="nav-items">
           <a class="nav-links" href="/">About us</a>

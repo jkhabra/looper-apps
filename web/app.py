@@ -22,7 +22,8 @@ def index():
                 + '&state=randomstring123' \
                 + '&response_type=token' \
                 + '&scope=public_profile,publish_actions,user_friends,email'
-     home= {'personality': 'personality-quote/confirm-quote', 'wwe': 'match_maker/confirm-pic'}
+     home= {'personality': 'personality-quote/confirm-quote', 'wwe': 'match_maker/confirm-pic', 'logout': '/logout'}
+
      return render_template('index.html', home=home, login_url=login_url)
 
 
@@ -35,3 +36,8 @@ def accept_fb_token():
 
     return render_template('fb-token.html')
 
+
+@app.route('/logout')
+def logout():
+     session['fb_token'] = None
+     return redirect('/')
