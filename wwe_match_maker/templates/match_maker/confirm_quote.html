@@ -1,5 +1,9 @@
 {% extends "match_maker/layout.html" %}
 {%block container %}
+{% from "app_card.html" import app_card %}
+
+{{ app_card(link='/personality-quote/confirm-quote', title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="/static/personality.jpg") }}
+
 <div class='display-img'>
   <div class='spinner' style='display:none'></div>
   <div class ='hidden'>

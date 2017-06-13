@@ -64,22 +64,28 @@
 .wwe, .pro {
   width: 400px;
   height: 265px;
-  #border: 1px solid gainsboro;
-  border-radius: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
 }
 
 .demo-img {
   width: 400px;
   height: 200px;
-  padding-bottom: 6px;
+  padding: 10px;
 }
 
 .app-title {
-  padding: 10px;
-  border: 1px solid gainsboro;
-  border-radius: 7px;
+  padding: 5px;
+  /*border: 1px solid gainsboro;
+  border-radius: 7px;*/
+  font-family: Helvetica;
+  font-size: medium;
+}
+
+.app-description {
   font-family: Helvetica;
   font-size: small;
+  padding: 5px;
 }
 
 .button-link {
@@ -167,4 +173,3 @@
   text-align: center;
   list-style: none;
 }
-/* style of success template */

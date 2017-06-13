@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, request, session, jsonif
 import os.path
 from .image_generator import generate_wwe_image
 import time
-from images import remove_image, get_graph
+from images import get_graph, remove_image
 
 match_maker  = Blueprint('match_maker', __name__, template_folder='templates', static_folder='static')
 
@@ -10,7 +10,7 @@ match_maker  = Blueprint('match_maker', __name__, template_folder='templates', s
 def confirm_quote():
     graph = get_graph()
     profile = graph.get_object('me')
-    args = {'fields' : 'id,name,email,picture.width(9999)', }
+    args = {'fields' : 'id,name,email,picture.width(9999),friends'}
     profile = graph.get_object('me', **args)
 
     user_id = profile['id']

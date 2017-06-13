@@ -242,3 +242,37 @@
 .fb-link{
   margin-left: 238px;
 }
+/*app card */
+
+.button-link {
+  text-decoration: none;
+  color: #3b3f3f;
+}
+
+.pro {
+  width: 400px;
+  height: 265px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  float: right;
+  margin-right: 50px;
+  background: #fff;
+}
+
+.demo-img {
+  width: 400px;
+  height: 200px;
+  padding: 10px;
+}
+
+.app-title {
+  padding: 5px;
+  font-family: Helvetica;
+  font-size: medium;
+}
+
+.app-description {
+  font-family: Helvetica;
+  font-size: small;
+  padding: 5px;
+}
