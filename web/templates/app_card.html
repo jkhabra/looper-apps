@@ -1,0 +1,9 @@
+{% macro app_card(link, img, description, title) -%}
+<a class="button-link" href="{{(link)}}">
+  <div class="post-info pro">
+    <img class="demo-img" src={{(img)}}  alt={{(description)}}>
+    <h3 class='app-title'>{{(title)}}</h3>
+    <p class='app-description'>{{(description)}}</p>
+  </div>
+</a>
+{%- endmacro %}
