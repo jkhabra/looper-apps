@@ -8,6 +8,9 @@ match_maker  = Blueprint('match_maker', __name__, template_folder='templates', s
 
 @match_maker.route('/confirm-pic')
 def confirm_quote():
+    remove_image('wwe_match_maker/static/temp')
+    session['wwe_image'] = None
+
     graph = get_graph()
     profile = graph.get_object('me')
     args = {'fields' : 'id,name,email,picture.width(9999),friends'}

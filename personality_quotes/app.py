@@ -9,9 +9,12 @@ personality_quote  = Blueprint('personality_quote', __name__, template_folder='t
 
 @personality_quote.route('/confirm-quote')
 def confirm_quote():
+    remove_image()
+    session['quote_image'] = None
+
     graph = get_graph()
     profile = graph.get_object('me')
-    args = {'fields' : 'id,name,email,picture.width(9999)', }
+    args = {'fields' : 'id,name,email,picture.width(9999)' }
     profile = graph.get_object('me', **args)
 
     user_id = profile['id']
@@ -32,6 +35,7 @@ def confirm_quote():
     if request.args.get('post_image') == 'yes':
         img = graph.put_photo(image=open(session.get('quote_image'), 'rb').read(), message='Find out which quote matches to your personality')
         session['post_id'] = img['id']
+
         flash('Your post has been posted to your profile')
         return redirect('personality-quote/success')
 
