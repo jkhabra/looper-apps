@@ -1,14 +1,17 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session, flash
+from os import path
 from personality_quotes.app import personality_quote
 from wwe_match_maker.app import match_maker
-from images import remove_image
+from images import remove_image, get_graph
 
 app = Flask(__name__)
-app.config.update(dict(SECRET_KEY='A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'))
+
+app.config.update(dict(
+     DATABASE=path.join(path.dirname(app.root_path), 'db/facebook.db'),
+     SECRET_KEY='A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'))
 
 app.register_blueprint(personality_quote, url_prefix='/personality-quote')
 app.register_blueprint(match_maker, url_prefix='/match_maker')
-
 
 app_id = "1854877241500808"
 redirect_uri = 'http://localhost:5000/accept-fb-token'
@@ -22,13 +25,32 @@ def index():
                 + '&state=randomstring123' \
                 + '&response_type=token' \
                 + '&scope=public_profile,publish_actions,user_friends,email'
-     home= {'personality': 'personality-quote/confirm-quote', 'wwe': 'match_maker/confirm-pic', 'logout': '/logout'}
-     remove_image()
-     remove_image('wwe_match_maker/static/temp')
-     session['wwe_image'] = None
-     session['quote_image'] = None
 
-     return render_template('index.html', home=home, login_url=login_url)
+     links = {'personality': 'personality-quote/confirm-quote', 'wwe': 'match_maker/confirm-pic', 'logout': '/logout'}
+
+     if session['fb_token'] is None:
+          flash('Please Login before continue')
+     else:
+          graph = get_graph()
+          profile = graph.get_object('me')
+          args = {'fields' : 'id,name,email,picture.width(9999),cover,age_range,gender,link,timezone,updated_time,verified,friends'}
+          profile = graph.get_object('me', **args)
+
+          user_id = profile['id']
+          user_name = profile['name']
+          user_image = profile['picture']['data']['url']
+          cover_image = profile['cover']
+          age = profile['age_range']
+          user_email = profile['email']
+          user_profile_link = profile['link']
+          timezone = profile['timezone']
+          gender = ['gender']
+          update_time = profile['updated_time']
+          verified  = profile['verified']
+          friends = graph.get_connections(id='me', connection_name='friends')
+          total_friends = friends['summary']['total_count']
+
+     return render_template('index.html', links=links, login_url=login_url)
 
 
 @app.route('/accept-fb-token')
