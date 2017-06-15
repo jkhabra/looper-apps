@@ -131,13 +131,14 @@
 /* flash messages */
 
 .flashes {
-  background-color: #9df1bc;
-  border-radius: 12px;
-  width: 60%;
-  height: 6%;
+  background-color: #f76a75;
+  border-radius: 13px;
+  color: #fff;
+  width: 40%;
+  height: 5%;
   #border: 1px solid gainsboro;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 8px;
 }
 .flashes, .message{

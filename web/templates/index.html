@@ -2,8 +2,8 @@
 {% from "app_card.html" import app_card %}
 
 {% block container %}
-{{ app_card(link=home.personality, title="Peronality Quotes", description="Create a quote that defines your personality", img="static/personality.jpg") }}
+{{ app_card(l='/' ,link=links.personality, title="Peronality Quotes", description="Create a quote that defines your personality", img="static/personality.jpg") }}
 
-{{ app_card(link=home.wwe, title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="static/wwe.jpg") }}
+{{ app_card(l='/', link=links.wwe, title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="static/wwe.jpg") }}
 
 {% endblock %}
