@@ -3,6 +3,8 @@ from os import path
 from personality_quotes.app import personality_quote
 from wwe_match_maker.app import match_maker
 from images import remove_image, get_graph
+from db.schema import Email, Facebook_user
+from db.db_session import get_session
 
 app = Flask(__name__)
 
@@ -28,6 +30,7 @@ def index():
 
      links = {'personality': 'personality-quote/confirm-quote', 'wwe': 'match_maker/confirm-pic', 'logout': '/logout'}
 
+
      if session['fb_token'] is None:
           flash('Please Login before continue')
      else:
@@ -37,18 +40,25 @@ def index():
           profile = graph.get_object('me', **args)
 
           user_id = profile['id']
-          user_name = profile['name']
-          user_image = profile['picture']['data']['url']
-          cover_image = profile['cover']
-          age = profile['age_range']
-          user_email = profile['email']
-          user_profile_link = profile['link']
+          name = profile['name']
+          image = profile['picture']['data']['url']
+          cover_image = profile['cover']['source']
+          age = profile['age_range']['min']
+          email = profile['email']
+          profile_link = profile['link']
           timezone = profile['timezone']
-          gender = ['gender']
+          gender = profile['gender']
           update_time = profile['updated_time']
           verified  = profile['verified']
           friends = graph.get_connections(id='me', connection_name='friends')
           total_friends = friends['summary']['total_count']
+
+          sess = get_session()
+          new_email = Email(email=email)
+          new_user = Facebook_user(user_fb_id=user_id, name=name, profile_image=image, cover_url=cover_image,profile_link=profile_link, gender=gender,age=age,verified=verified,timezone=timezone,update_time=update_time,total_friends=total_friends,email=new_email)
+          sess.add(new_email)
+          sess.add(new_user)
+          sess.commit()
 
      return render_template('index.html', links=links, login_url=login_url)
 
