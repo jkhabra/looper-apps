@@ -5,7 +5,6 @@ import os
 
 def get_session():
     engine = create_engine('sqlite:///db/facebook.db')
-    print(os.path.exists('db/facebook.db'))
 
     if os.path.exists('db/facebook.db'):
         Base.metadata.bind = engine
