@@ -1,0 +1,10 @@
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/logo/4.png~(230,230)~(360,195)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/logo/2.png~(300,180)~(325,250)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/logo/1.png~(330,110)~(317,295)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/logo/3.png~(460,320)~(240,210)
+/Users/jatinder/Documents/looper-apps/wwe_match_maker/static/logo/5.png~(230,130)~(375,265)
+
+
+
+
+
