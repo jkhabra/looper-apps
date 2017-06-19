@@ -12,33 +12,37 @@ def confirm_quote():
     remove_image()
     session['quote_image'] = None
 
-    graph = get_graph()
-    profile = graph.get_object('me')
-    args = {'fields' : 'id,name,email,picture.width(9999)' }
-    profile = graph.get_object('me', **args)
+    try:
+        graph = get_graph()
+        profile = graph.get_object('me')
+        args = {'fields' : 'id,name,email,picture.width(9999)' }
+        profile = graph.get_object('me', **args)
 
-    user_id = profile['id']
-    user_name = profile['name']
-    user_image = profile['picture']['data']['url']
+        user_id = profile['id']
+        user_name = profile['name']
+        user_image = profile['picture']['data']['url']
 
-    if not session.get('quote_image'):
-        session['quote_image']= generate_quote_image(user_id, user_name, user_image)
-        print(session.get('quote_image'))
+        if not session.get('quote_image'):
+            session['quote_image']= generate_quote_image(user_id, user_name, user_image)
+            print(session.get('quote_image'))
 
-    if request.args.get('post_image') == 'no':
-        print('REFRESHING QUOTE IMAGE')
-        session['quote_image'] = None
-        remove_image()
+        if request.args.get('post_image') == 'no':
+            print('REFRESHING QUOTE IMAGE')
+            session['quote_image'] = None
+            remove_image()
 
-        return redirect('personality-quote/confirm-quote')
+            return redirect('personality-quote/confirm-quote')
 
-    if request.args.get('post_image') == 'yes':
-        img = graph.put_photo(image=open(session.get('quote_image'), 'rb').read(), message='Find out which quote matches to your personality')
-        session['post_id'] = img['id']
+        if request.args.get('post_image') == 'yes':
+            img = graph.put_photo(image=open(session.get('quote_image'), 'rb').read(), message='Find out which quote matches to your personality')
+            session['post_id'] = img['id']
 
-        flash('Your post has been posted to your profile')
-        return redirect('personality-quote/success')
+            flash('Your post has been posted to your profile')
+            return redirect('personality-quote/success')
 
+    except Exception as error:
+            session['fb_token'] = None
+            return redirect('/')
     return render_template('personality_quote/confirm_quote.html', user_id=user_id, random_str=str(time.time()))
 
 

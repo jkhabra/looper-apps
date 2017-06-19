@@ -11,31 +11,36 @@ def confirm_quote():
     remove_image('wwe_match_maker/static/temp')
     session['wwe_image'] = None
 
-    graph = get_graph()
-    profile = graph.get_object('me')
-    args = {'fields' : 'id,name,email,picture.width(9999),friends'}
-    profile = graph.get_object('me', **args)
+    try:
+        graph = get_graph()
+        profile = graph.get_object('me')
+        args = {'fields' : 'id,name,email,picture.width(9999),friends'}
+        profile = graph.get_object('me', **args)
 
-    user_id = profile['id']
-    user_name = profile['name']
-    user_image = profile['picture']['data']['url']
+        user_id = profile['id']
+        user_name = profile['name']
+        user_image = profile['picture']['data']['url']
 
-    if not session.get('wwe_image'):
-        session['wwe_image']= generate_wwe_image(user_id, user_name, user_image)
-        print(session.get('wwe_image'))
+        if not session.get('wwe_image'):
+            session['wwe_image']= generate_wwe_image(user_id, user_name, user_image)
+            print(session.get('wwe_image'))
 
-    if request.args.get('post_image') == 'no':
-        print('REFRESHING QUOTE IMAGE')
-        session['wwe_image'] = None
-        remove_image()
+        if request.args.get('post_image') == 'no':
+            print('REFRESHING QUOTE IMAGE')
+            session['wwe_image'] = None
+            remove_image()
 
-        return redirect('match_maker/confirm-pic')
+            return redirect('match_maker/confirm-pic')
 
-    if request.args.get('post_image') == 'yes':
-        img = graph.put_photo(image=open(session.get('wwe_image'), 'rb').read(), message='Find out which wwe star matches to  personality')
-        session['post_id'] = img['id']
-        flash('Your post has been posted to your profile')
-        return redirect('match_maker/success')
+        if request.args.get('post_image') == 'yes':
+            img = graph.put_photo(image=open(session.get('wwe_image'), 'rb').read(), message='Find out which wwe star matches to  personality')
+            session['post_id'] = img['id']
+            flash('Your post has been posted to your profile')
+            return redirect('match_maker/success')
+
+    except Exception as error:
+        session['fb_token'] = None
+        return redirect('/')
 
     return render_template('match_maker/confirm_quote.html', user_id=user_id, random_str=str(time.time()))
 
