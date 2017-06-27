@@ -66,8 +66,8 @@ def index():
                     sa_session.commit()
      except Exception as error:
           session['fb_token'] = None
-          redirect('/')
-          flash('Facebook access token is expired so login again', error)
+          flash('Please login with facebook')
+
      return render_template('index.html', links=links, login_url=login_url)
 
 

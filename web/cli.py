@@ -13,5 +13,4 @@ def web():
     #port = os.environ['PORT']
 
     #app.run(host='0.0.0.0', port=port)
-    app.run(debug=True)
-
+    app.run(host='0.0.0.0', debug=True)
