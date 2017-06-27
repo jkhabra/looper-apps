@@ -1,0 +1,17 @@
+* facebook_user
+** id
+** name
+** email_id
+** dp
+** cover
+** age
+** gender_id
+** profile_link
+** timezone
+** updated_time
+** verified
+** total_friends
+* email
+** email
+* gender
+** gender
