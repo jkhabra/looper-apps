@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request, session, flash
 from os import path
 from personality_quotes.app import personality_quote
 from wwe_match_maker.app import match_maker
+from good_qualities.app import good_qualities
 from images import remove_image, get_graph
 from db.schema import Email, Facebook_user
 from db.db_session import get_session
@@ -13,6 +14,7 @@ app.config.update(dict(SECRET_KEY='A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'))
 
 app.register_blueprint(personality_quote, url_prefix='/personality-quote')
 app.register_blueprint(match_maker, url_prefix='/match_maker')
+app.register_blueprint(good_qualities, url_prefix='/good_qualities')
 
 app_id = "1854877241500808"
 redirect_uri = 'http://localhost:5000/accept-fb-token'
@@ -27,7 +29,7 @@ def index():
                 + '&response_type=token' \
                 + '&scope=public_profile,publish_actions,user_friends,email'
 
-     links = {'personality': 'personality-quote/confirm-quote', 'wwe': 'match_maker/confirm-pic', 'logout': '/logout'}
+     links = {'personality': 'personality-quote/confirm-quote', 'wwe': 'match_maker/confirm-pic', 'qualities': 'good_qualities/confirm-pic',  'logout': '/logout'}
 
      try:
           if session['fb_token'] == None:

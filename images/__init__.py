@@ -27,7 +27,7 @@ def resize_all_img():
     """
     Resize all images that in folder
     """
-    img_path = os.path.join(path, 'static/images/')
+    img_path = '{}'.format(folder)
     image = os.listdir(img_path)
 
     for i in image:
@@ -35,12 +35,12 @@ def resize_all_img():
             image_size(img_path+i)
     print('<<<<<<<<<<<<<<<<<Everything is done here>>>>>>>>>>>>>>>>>>>')
 
-def img_file():
+def img_file(images_path):
     """
     Create a file that contain background image with their color
     """
-    img_path = os.path.join(path, 'static/images/')
-    resize_all_img()
+    img_path = (images_path)
+    
     image = os.listdir(img_path)
     img_list = []
 
@@ -50,15 +50,15 @@ def img_file():
             t = (img_path+i, image_colour(img_path+i))
             img_list.append(t)
 
-    with open('web/static/images/img_color.txt', 'a+') as foo:
+    with open('good_qualities/static/images/img_color.txt', 'a+') as foo:
         f = foo.write('\n'.join('{}~{}'.format(*x) for x in img_list))
     print('<<<<<<<<<<<<<<<<<<<<Work is done here>>>>>>>>>>>>>>>')
 
-def get_random_img():
+def get_random_img(folder, filename):
     """
     Returns a random background image
     """
-    with open('personality_quotes/static/images/img_color.txt', 'r') as foo:
+    with open('{}/static/images/{}.txt'.format(folder, filename), 'r') as foo:
         f = foo.read()
 
     image = f.strip().split('\n')
@@ -67,7 +67,7 @@ def get_random_img():
     for i in image:
         l.append(i.strip().split('~'))
 
-    return secure_random.choice(l)
+    return random.choice(l)
 
 def image_colour(img):
     """

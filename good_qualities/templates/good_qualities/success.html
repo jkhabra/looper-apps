@@ -1,0 +1,19 @@
+{% extends "good_qualities/layout.html" %}
+{%block container %}
+<div class='quote-img'>
+  <div class='spinner' style='display:none'></div>
+  <div class='hidden'>
+    <img class="on-fb-img" src={{'static/temp/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
+  </div>
+</div>
+<a class='quote-again fb-link' href={{'https://www.facebook.com/{}'.format(post_id)}} target='_blank'>Checkout On Facebook</a>
+
+<a class='quote-again large' href="/good_qualities/success?post_image=again">Create another one</a>
+
+<script>
+ document.querySelector('.large').onclick = function fun() {
+   document.querySelector('.hidden').style.display ='none';
+   document.querySelector('.spinner').style.display = '';
+ };
+</script>
+{% endblock %}

@@ -1,11 +1,8 @@
-{% extends "match_maker/layout.html" %}
+{% extends "good_qualities/layout.html" %}
 {%block container %}
 {% from "app_card.html" import app_card %}
 
 {{ app_card(link='/personality-quote/confirm-quote', title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="/static/personality.jpg") }}
-
-{{ app_card(link='/good_qualities/confirm-pic', title="Good Qualities", description="Find out which qualities people sees in you", img="/static/good.jpg") }}
-
 
 <div class='display-img'>
   <div class='spinner' style='display:none'></div>
@@ -13,8 +10,8 @@
     <img class="post-img" src={{'static/temp/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
   </div>
 </div>
-<a class='try-again again' href="/match_maker/confirm-pic?post_image=no">Create another one</a>
-<a class='publish' href="/match_maker/confirm-pic?post_image=yes">Publish on Facebook</a>
+<a class='try-again again' href="/good_qualities/confirm-pic?post_image=no">Create another one</a>
+<a class='publish' href="/good_qualities/confirm-pic?post_image=yes">Publish on Facebook</a>
 
 <script>
 
