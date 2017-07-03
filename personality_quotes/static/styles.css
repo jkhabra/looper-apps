@@ -49,7 +49,7 @@
 .container {
     background-color: initial;
     padding-top: 15px;
-    height: 90%;
+    height: 97%;
     padding-top: 60px;
 }
 
@@ -254,8 +254,6 @@
   height: 265px;
   border: 1px solid gainsboro;
   border-radius: 5px;
-  float: right;
-  margin-right: 50px;
   background: #fff;
 }
 
@@ -275,4 +273,16 @@
   font-family: Helvetica;
   font-size: small;
   padding: 5px;
+}
+
+.wwe {
+  float: right;
+  margin-top: -416px;
+  margin-right: 50px;
+}
+
+.good {
+  float: right;
+  margin-top: -136px;
+  margin-right: 50px;
 }

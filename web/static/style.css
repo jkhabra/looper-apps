@@ -49,11 +49,12 @@
 .container {
     background-color: initial;
     padding-top: 15px;
-    height: 100%;
-    padding-top: 60px;
+    height: 94%;
+    width: auto;
+    padding-top: 40px;
 }
 
-.post-info {
+.wrapper {
     margin-left: 50px;
     float: left;
     margin-bottom: 20px;
@@ -62,7 +63,7 @@
 .pro{
   margin-left: 80px;
 }
-.wwe, .pro {
+.pro {
   width: 400px;
   height: 265px;
   border: 1px solid gainsboro;

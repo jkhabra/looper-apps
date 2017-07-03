@@ -2,8 +2,6 @@
 {%block container %}
 {% from "app_card.html" import app_card %}
 
-{{ app_card(link='/personality-quote/confirm-quote', title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="/static/personality.jpg") }}
-
 <div class='display-img'>
   <div class='spinner' style='display:none'></div>
   <div class ='hidden'>
@@ -12,6 +10,13 @@
 </div>
 <a class='try-again again' href="/good_qualities/confirm-pic?post_image=no">Create another one</a>
 <a class='publish' href="/good_qualities/confirm-pic?post_image=yes">Publish on Facebook</a>
+
+<div class='wwe'>
+  {{ app_card(link='/match_maker/confirm-pic', title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="/static/wwe.jpg") }}
+</div>
+<div class='person'>
+    {{ app_card(link='/personality-quote/confirm-quote', title='Personality Quotes', description='Create a quote that defines your personality', img='/static/personality.jpg')}}
+</div>
 
 <script>
 

@@ -4,10 +4,12 @@
   {% else %}
   <a class="button-link" href="{{(link)}}">
     {% endif %}
-  <div class="post-info pro">
+    <div class="wrapper pro">
+      <div class='content'>
     <img class="demo-img" src={{(img)}}  alt={{(description)}}>
     <h3 class='app-title'>{{(title)}}</h3>
     <p class='app-description'>{{(description)}}</p>
+      </div>
   </div>
 </a>
 {%- endmacro %}
