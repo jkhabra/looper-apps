@@ -2,14 +2,12 @@
 {% if session['fb_token'] == None %}
 <a class="button-link" href="{{(l)}}">
   {% else %}
-  <a class="button-link" href="{{(link)}}">
+    <a class="button-link" href="{{(link)}}">
     {% endif %}
-    <div class="wrapper pro">
-      <div class='content'>
+      <div class='content data'>
     <img class="demo-img" src={{(img)}}  alt={{(description)}}>
     <h3 class='app-title'>{{(title)}}</h3>
     <p class='app-description'>{{(description)}}</p>
       </div>
-  </div>
-</a>
+    </a>
 {%- endmacro %}

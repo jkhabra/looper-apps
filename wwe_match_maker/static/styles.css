@@ -49,7 +49,7 @@
 .container {
     background-color: initial;
     padding-top: 15px;
-    height: 97%;
+    min-height: 90%;
     padding-top: 60px;
 }
 
@@ -98,14 +98,19 @@
 
 /* styles of confirm_quote template*/
 
-.display-img{
-  border: 1px solid gainsboro;
-  position: relative;
-  width: 670px;
-  margin-bottom: 20px;
-  height: 378;
+.wrapper{
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 690px 400px;
   margin-left: 80px;
- // margin: auto;
+}
+
+.display-img{
+  /border: 1px solid gainsboro;
+  /* position: relative; */
+  width: 690px;
+  min-height: 445px;
+  grid-column: 1/span 1;
 }
 
 .post-img {
@@ -123,8 +128,16 @@
 }
 
 .again{
-  margin-left: 80px;
+  position: absolute;
+  top: 507px;
 }
+
+.publish{
+  position: absolute;
+  top: 507px;
+  margin-left: 190px;
+}
+
 .spinner{
   margin: auto;
   margin-top: 200px;
@@ -249,18 +262,10 @@
   color: #3b3f3f;
 }
 
-.pro {
-  width: 400px;
-  height: 265px;
-  border: 1px solid gainsboro;
-  border-radius: 5px;
-  background: #fff;
-}
-
 .demo-img {
-  width: 400px;
-  height: 200px;
-  padding: 10px;
+  width: 100%;
+  height: 180px;
+  padding: 9px;
 }
 
 .app-title {
@@ -275,14 +280,466 @@
   padding: 5px;
 }
 
-.person {
-  float: right;
-  margin-top: -416px;
-  margin-right: 50px;
+.content.data {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
 }
 
+.person {
+  grid-column: 2;
+  grid-row: 1;
+ }
+
 .good {
-  float: right;
-  margin-top: -136px;
-  margin-right: 50px;
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: -215px;
+  margin-bottom: 25px;
+}
+
+/* styles for tablets */
+
+@media screen and (min-width: 770px)
+and (max-width: 873px) {
+  .container {
+    background-color: initial;
+    /height: 115%;
+    padding-top: 0px;
+    margin-top: 20;
+}
+
+/* styles of confirm_quote template*/
+
+.wrapper{
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 550px 400px;
+  grid-row-gap: 25px;
+  margin-left: 50px;
+}
+
+.display-img{
+  /border: 1px solid gainsboro;
+  /* position: relative; */
+  width: 550px;
+  min-height: 365px;
+  margin-left: 0px;
+  grid-column: 1/span 2;
+}
+
+.again{
+  position: absolute;
+  top: 383px;
+}
+
+.publish{
+  position: absolute;
+  top: 383px;
+  margin-left: 190px;
+}
+
+.demo-img {
+  width: 100%;
+  height: 135px;
+  padding: 10px;
+}
+
+.person, .wwe {
+  grid-column: 2;
+  grid-row: 2;
+  width: 350px;
+  margin-top: 0px;
+  margin-left: -218px;
+  margin-bottom: 25px;
+ }
+
+.good {
+  margin-top: 0px;
+  grid-column: 1;
+  grid-row: 2;
+  width: 350px;
+}
+
+}
+
+/* styles for mobiles*/
+
+@media screen and (max-width: 489px) {
+  .container {
+    background-color: initial;
+    /height: 85%;
+    padding-top: 0px;
+    margin-top: 20;
+  }
+
+  /* styles of confirm_quote template*/
+
+  .wrapper{
+    display: grid;
+    grid-gap: 15px;
+    margin-left: 7px;
+    grid-template-columns: 300px 150px 150px;
+    grid-row-gap: 15px;
+  }
+
+  .display-img{
+    /border: 1px solid gainsboro;
+    /* position: relative; */
+    width: 300px;
+    min-height: 169px;
+    grid-column: 1/span 2;
+  }
+
+  .again{
+    position: absolute;
+    top: 244px;
+  }
+
+  .publish{
+    position: absolute;
+    top: 287px;
+    margin-left: 0px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 6px;
+    background-color: #c75575;
+    padding: 12px 83px 12px 83px;
+  }
+
+  .demo-img {
+    width: 100%;
+    height: 145px;
+    padding: 10px;
+  }
+
+  .spinner {
+    margin: auto;
+    margin-top: 60;
+    border: 4px solid #c75579;
+    border-bottom: 4px solid #e2e8ec;
+    border-top: 5px solid #e2e8ec;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 1s linear infinite;
+  }
+
+  .app-title {
+    padding: 5px;
+    font-family: Helvetica;
+    font-size: x-small;
+  }
+
+  .app-description {
+    font-family: Helvetica;
+    font-size: xx-small;
+    padding: 2px;
+  }
+
+  .try-again {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 6px;
+    background-color: #c75575;
+    padding: 12px 88px 12px 88px;
+  }
+
+  .person, .good, .wwe {
+    margin: auto;
+  }
+
+  .person, .wwe {
+    grid-column: 1;
+    grid-row: 2;
+    width: 95%;
+    padding-top: 85px;
+  }
+
+  .good {
+    margin-top: 0px;
+    grid-column: 1;
+    grid-row: 3;
+    width: 95%;
+    padding-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 1001px)
+and (max-width: 1212px) {
+
+  .wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 690px 450px;
+    margin-left: 10px;
+  }
+
+  .display-img {
+    width: 690px;
+    min-height: 445px;
+    grid-column: 1/span 1;
+  }
+
+  .person, .wwe {
+    grid-column: 2;
+    grid-row: 2;
+    width: 450px;
+    margin-top: -205px;
+    margin-bottom: 25px;grid-column: 2;
+  }
+
+  .good {
+    margin-top: 0px;
+    grid-column: 2;
+    margin-bottom: 0px;
+    grid-row: 1;
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 924px)
+and (max-width: 1202px) {
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 840px 400px;
+    margin-left: 20px;
+    grid-row-gap: 23px;
+  }
+
+  .display-img {
+    width: 840px;
+    min-height: 445px;
+    grid-column: 1/span 1;
+    margin-left: 20px;
+  }
+
+  .again {
+    position: absolute;
+    top: 588px;
+  }
+
+  .publish {
+    position: absolute;
+    top: 588px;
+    margin-left: 190px
+  }
+
+  .person, .wwe {
+    grid-column: 2;
+    grid-row: 2;
+    width: 400px;
+    margin: 55px 0px 40px -375px;
+  }
+
+  .good {
+    margin: 55px 0px 40px 20px;
+    grid-column: 1;
+    grid-row: 2;
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 965px)
+and (max-width: 1061px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 840px 400px;
+    margin-left: 50px;
+    grid-row-gap: 50px;
+  }
+
+  .display-img {
+    width: 840px;
+    min-height: 445px;
+    grid-column: 1/span 1;
+    margin-left: 20px;
+  }
+
+  .again {
+    position: absolute;
+    top: 588px;
+  }
+
+  .publish {
+    position: absolute;
+    top: 588px;
+    margin-left: 190px
+  }
+
+  .person, .wwe {
+    grid-column: 2;
+    grid-row: 2;
+    width: 400px;
+    margin: 10px 0px 30px -417px;
+  }
+
+  .good {
+    margin: 10px 0px 30px 20px;
+    grid-column: 1;
+    grid-row: 2;
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 872px)
+and (max-width: 903px) {
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 840px 400px;
+    margin-left: 10px;
+    grid-row-gap: 50px;
+  }
+
+  .display-img {
+    width: 840px;
+    min-height: 445px;
+    grid-column: 1/span 1;
+    margin-left: 10px;
+  }
+  .again {
+    position: absolute;
+    top: 549px;
+  }
+
+  .publish {
+    position: absolute;
+    top: 549px;
+    margin-left: 190px
+  }
+
+  .person, .wwe {
+    grid-column: 2;
+    grid-row: 2;
+    width: 400px;
+    margin: 20px 0px 25px -440px;
+  }
+
+  .good {
+    margin: 20px 0px 0px 10px;
+    grid-column: 1;
+    grid-row: 2;
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 500px)
+and (max-width: 773px) {
+  .container {
+    background-color: initial;
+    padding-top: 0px;
+    margin-top: 20;
+  }
+
+  .wrapper{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 550px 400px;
+    grid-row-gap: 25px;
+    margin-left: 20px;
+  }
+
+  .display-img{
+    /border: 1px solid gainsboro;
+    /* position: relative; */
+    width: 550px;
+    min-height: 365px;
+    margin-left: 0px;
+    grid-column: 1/span 2;
+  }
+
+  .again{
+    position: absolute;
+    top: 383px;
+  }
+
+  .publish{
+    position: absolute;
+    top: 383px;
+    margin-left: 190px;
+  }
+
+  .demo-img {
+    width: 100%;
+    height: 135px;
+    padding: 10px;
+  }
+
+  .person, .wwe {
+    grid-column: 2;
+    grid-row: 2;
+    width: 350px;
+    margin-top: 0px;
+    margin-left: -218px;
+    margin-bottom: 25px;
+  }
+
+  .good {
+    margin-top: 0px;
+    grid-column: 1;
+    grid-row: 2;
+    width: 350px;
+  }
+
+@media screen and (min-width: 564px)
+  and (max-width: 740px) {
+  .container {
+    background-color: initial;
+    padding-top: 0px;
+    margin-top: 20;
+  }
+
+  .wrapper{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 550px 400px;
+    grid-row-gap: 0px;
+    margin-left: 70px;
+  }
+
+  .display-img{
+    /border: 1px solid gainsboro;
+    /* position: relative; */
+    width: 550px;
+    min-height: 365px;
+    margin-left: 0px;
+    grid-column: 1/span 2;
+  }
+
+  .again{
+    position: absolute;
+    top: 383px;
+  }
+
+  .publish{
+    position: absolute;
+    top: 383px;
+    margin-left: 190px;
+  }
+
+  .demo-img {
+    width: 100%;
+    height: 135px;
+    padding: 10px;
+  }
+
+  .person, .wwe {
+    grid-column: 1;
+    grid-row: 2;
+    width: 350px;
+    margin-top: 20px;
+    margin-left: 130px;
+    margin-bottom: 25px;
+  }
+
+  .good {
+    margin-top: 0px;
+    grid-column: 1;
+    margin-left: 130;
+    grid-row: 3;
+    width: 350px;
+  }
 }

@@ -1,7 +1,6 @@
 good_qualities/static/images/1.jpg~maroon
 good_qualities/static/images/10.jpg~black
 good_qualities/static/images/15.jpg~navy
-good_qualities/static/images/2.jpg~black
 good_qualities/static/images/3.jpg~black
 good_qualities/static/images/4.jpg~olive
 good_qualities/static/images/6.jpg~black

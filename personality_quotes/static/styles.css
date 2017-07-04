@@ -98,14 +98,19 @@
 
 /* styles of confirm_quote template*/
 
-.display-img{
-  border: 1px solid gainsboro;
-  position: relative;
-  width: 670px;
-  margin-bottom: 20px;
-  height: 378;
+.wrapper{
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 690px 400px;
   margin-left: 80px;
- // margin: auto;
+}
+
+.display-img{
+  /border: 1px solid gainsboro;
+  /* position: relative; */
+  width: 690px;
+  min-height: 445px;
+  grid-column: 1/span 1;
 }
 
 .post-img {
@@ -123,8 +128,16 @@
 }
 
 .again{
-  margin-left: 80px;
+  position: absolute;
+  top: 507px;
 }
+
+.publish{
+  position: absolute;
+  top: 507px;
+  margin-left: 190px;
+}
+
 .spinner{
   margin: auto;
   margin-top: 200px;
@@ -249,18 +262,10 @@
   color: #3b3f3f;
 }
 
-.pro {
-  width: 400px;
-  height: 265px;
-  border: 1px solid gainsboro;
-  border-radius: 5px;
-  background: #fff;
-}
-
 .demo-img {
-  width: 400px;
-  height: 200px;
-  padding: 10px;
+  width: 100%;
+  height: 160px;
+  padding: 9px;
 }
 
 .app-title {
@@ -275,14 +280,177 @@
   padding: 5px;
 }
 
-.wwe {
-  float: right;
-  margin-top: -416px;
-  margin-right: 50px;
+.content.data {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
 }
 
+.wwe {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: -245px;
+ }
+
 .good {
-  float: right;
-  margin-top: -136px;
-  margin-right: 50px;
+  grid-column: 2;
+  grid-row: 1;
+  height: 251px;
+}
+
+/* styles for tablets */
+@media screen and (min-width: 490px)
+and (max-width: 1000px) {
+  /* styles of index template*/
+  .container {
+    background-color: initial;
+    height: 107%;
+    padding-top: 0px;
+    margin-top: 50;
+  }
+
+  /* styles of confirm_quote template*/
+
+  .wrapper{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 650px 400px;
+    grid-row-gap: 80px;
+  }
+
+  .display-img{
+    /border: 1px solid gainsboro;
+    /* position: relative; */
+    width: 650px;
+    min-height: 365px;
+    margin-left: 70px;
+    grid-column: 1/span 2;
+  }
+
+  .again{
+    position: absolute;
+    top: 479px;
+  }
+
+  .publish{
+    position: absolute;
+    top: 479px;
+    margin-left: 190px;
+  }
+
+  .demo-img {
+    width: 100%;
+    height: 175px;
+    padding: 10px;
+  }
+
+  .wwe {
+    grid-column: 2;
+    grid-row: 2;
+    width: 400px;
+    margin-top: 0px;
+    margin-left: -260px;
+  }
+
+  .good {
+    grid-column: 1;
+    grid-row: 2;
+    width: 400px;
+  }
+}
+
+/* styles for mobiles*/
+
+@media screen and (max-width: 420px) {
+  .container {
+    background-color: initial;
+    height: 90%;
+    padding-top: 0px;
+    margin-top: 20;
+  }
+
+  /* styles of confirm_quote template*/
+
+  .wrapper{
+    display: grid;
+    grid-gap: 15px;
+    margin-left: 7px;
+    grid-template-columns: 300px 150px 150px;
+    grid-row-gap: 15px;
+  }
+
+  .display-img{
+    /border: 1px solid gainsboro;
+    /* position: relative; */
+    width: 300px;
+    min-height: 169px;
+    grid-column: 1/span 2;
+  }
+
+  .again{
+    position: absolute;
+    top: 244px;
+  }
+
+  .publish{
+    position: absolute;
+    top: 244px;
+    margin-left: 115px;
+  }
+
+  .demo-img {
+    width: 100%;
+    height: 95px;
+    padding: 10px;
+  }
+
+  .spinner {
+    margin: auto;
+    margin-top: 60;
+    border: 4px solid #c75579;
+    border-bottom: 4px solid #e2e8ec;
+    border-top: 5px solid #e2e8ec;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    animation: spin 1s linear infinite;
+  }
+
+  .app-title {
+    padding: 5px;
+    font-family: Helvetica;
+    font-size: x-small;
+  }
+
+  .app-description {
+    font-family: Helvetica;
+    font-size: xx-small;
+    padding: 2px;
+  }
+
+  .try-again, .publish {
+    text-decoration: none;
+    color: #fff;
+    font-size: x-small;
+    border-radius: 6px;
+    background-color: #c75575;
+    padding: 5px 8px 7px 13px;
+  }
+
+  .wwe, .good {
+    margin: auto;
+  }
+
+  .wwe {
+    grid-column: 1;
+    grid-row: 2;
+    width: 200px;
+    padding-top: 40px;
+  }
+
+  .good {
+    margin-top: 0px;
+    grid-column: 1;
+    grid-row: 3;
+    width: 200px;
+  }
 }

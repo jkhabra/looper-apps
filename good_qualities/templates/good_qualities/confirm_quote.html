@@ -2,22 +2,23 @@
 {%block container %}
 {% from "app_card.html" import app_card %}
 
-<div class='display-img'>
-  <div class='spinner' style='display:none'></div>
-  <div class ='hidden'>
-    <img class="post-img" src={{'static/temp/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
-  </div>
-</div>
-<a class='try-again again' href="/good_qualities/confirm-pic?post_image=no">Create another one</a>
-<a class='publish' href="/good_qualities/confirm-pic?post_image=yes">Publish on Facebook</a>
+<div class='wrapper'>
 
+  <div class='display-img'>
+    <div class='spinner' style='display:none'></div>
+      <div class ='hidden'>
+         <img class="post-img" src={{'static/temp/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
+     </div>
+       <a class='try-again again' href="/good_qualities/confirm-pic?post_image=no">Create another one</a>
+       <a class='publish' href="/good_qualities/confirm-pic?post_image=yes">Publish on Facebook</a>
+  </div>
 <div class='wwe'>
   {{ app_card(link='/match_maker/confirm-pic', title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="/static/wwe.jpg") }}
 </div>
 <div class='person'>
     {{ app_card(link='/personality-quote/confirm-quote', title='Personality Quotes', description='Create a quote that defines your personality', img='/static/personality.jpg')}}
 </div>
-
+</div>
 <script>
 
  document.querySelector('.try-again').onclick = function fun() {

@@ -2,23 +2,25 @@
 {%block container %}
 {% from "app_card.html" import app_card %}
 
-<div class='display-img'>
-  <div class='spinner' style='display:none'></div>
-  <div class ='hidden'>
-    <div class='content'>
-      <img class="post-img" src={{'static/temp/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
+<div class='wrapper'>
+  <div class='display-img'>
+    <div class='spinner' style='display:none'></div>
+    <div class ='hidden'>
+       <div class='content'>
+         <img class="post-img" src={{'static/temp/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
+       </div>
     </div>
-  </div>
-</div>
-<a class='try-again again' href="/match_maker/confirm-pic?post_image=no">Create another one</a>
-<a class='publish' href="/match_maker/confirm-pic?post_image=yes">Publish on Facebook</a>
-
-<div class='person'>
+    <a class='try-again again' href="/match_maker/confirm-pic?post_image=no">Create another one</a>
+    <a class='publish' href="/match_maker/confirm-pic?post_image=yes">Publish on Facebook</a>
+   </div>
+ <div class='person'>
   {{ app_card(link='/personality-quote/confirm-quote', title='Personality Quotes', description="Create a quote that defines your personality", img="/static/personality.jpg") }}
 </div>
 <div class='good'>
     {{ app_card(link='/good_qualities/confirm-pic', title="Good Qualities", description="Find out which qualities people sees in you", img="/static/good.jpg") }}
- </div>
+</div>
+</div>
+
 
   <script>
 

@@ -3,21 +3,22 @@
 
 {% from "app_card.html" import app_card %}
 
-<div class='display-img'>
-  <div class='spinner' style='display:none'></div>
-  <div class ='hidden'>
+<div class='wrapper'>
+
+  <div class='display-img'>
+    <div class='spinner' style='display:none'></div>
+      <div class ='hidden'>
     <img class="post-img" src={{'static/tem/{}.jpg?{}'.format(user_id, random_str)}}  alt="Your post look like">
-  </div>
-</div>
-<a class='try-again again' href="/personality-quote/confirm-quote?post_image=no">Create another one</a>
-<a class='publish' href="/personality-quote/confirm-quote?post_image=yes">Publish on Facebook</a>
-
-
-<div class='wwe'>
-  {{ app_card(link='/match_maker/confirm-pic', title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="/static/wwe.jpg") }}
-</div>
-<div class='good'>
-  {{ app_card(link='/good_qualities/confirm-pic', title="Good Qualities", description="Find out which qualities people sees in you", img="/static/good.jpg") }}
+       </div>
+       <a class='try-again again' href="/personality-quote/confirm-quote?post_image=no">Create another one</a>
+       <a class='publish' href="/personality-quote/confirm-quote?post_image=yes">Publish on Facebook</a>
+   </div>
+    <div class='wwe'>
+      {{ app_card(link='/match_maker/confirm-pic', title="WWE Match Maker", description="Find out which wwe wrestler wanna fight with you", img="/static/wwe.jpg") }}
+   </div>
+   <div class='good'>
+     {{ app_card(link='/good_qualities/confirm-pic', title="Good Qualities", description="Find out which qualities people sees in you", img="/static/good.jpg") }}
+   </div>
 </div>
 
 <script>
