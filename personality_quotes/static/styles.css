@@ -48,7 +48,6 @@
 /* styles of index template*/
 .container {
     background-color: initial;
-    padding-top: 15px;
     /height: 97%;
     padding-top: 60px;
 }
@@ -105,7 +104,7 @@
   grid-template-columns: 690fr 380fr;
   grid-template-rows: 200px 170px;
   margin-left: 80px;
-  margin-bottom: 9vw;
+  margin-bottom: 9.8vw;
 }
 
 .display-img{
@@ -122,7 +121,6 @@
 }
 
 .try-again, .publish {
-  /top: 35.8em;
   position: absolute;
   margin-top: 1em;
   text-decoration: none;
@@ -134,8 +132,6 @@
   }
 
 .publish{
-  /position: absolute;
-  /top: 507px;
   margin-left: 13em;
 }
 
@@ -152,6 +148,19 @@
   height: 40px;
   animation: spin 2s linear infinite;
 }
+
+.demo-img {
+  width: 100%;
+  height: 160px;
+  padding: 10px;
+}
+
+.app-title {
+  padding: 5px;
+  font-family: Helvetica;
+  font-size: 1.2vw;
+}
+
 
 /* receive_fb_token */
 
@@ -303,14 +312,11 @@
 /* styles for tablets */
 @media screen and (min-width: 700px)
 and (max-width: 888px) {
-  /* styles of index template*/
-  .container {
-    background-color: initial;
-    /* height: 97%; */
+   .container {
     padding-top: 20px;
-  }
+   }
+
   .wrapper{
-    display: grid;
     position: relative;
     grid-gap: 0px;
     grid-column-gap: 10px;
@@ -318,39 +324,25 @@ and (max-width: 888px) {
     grid-template-rows: 333px 180px;
     grid-row-gap: 22vw;
     margin-left: 3em;
-    margin-bottom: 9vw;
   }
 
   .display-img{
-    /border: 1px solid gainsboro;
-    position: absolute;
     width: 90vw;
     grid-column: 1/span 2;
   }
 
-  .again{
-    position: absolute;
-    /top: 479px;
-  }
-
   .publish{
-    position: absolute;
-    /top: 479px;
-    margin-left: 17vw;
+   margin-left: 17vw;
   }
 
   .demo-img {
-    width: 100%;
     height: 178px;
-    padding: 10px;
   }
 
   .wwe, .person{
     grid-column: 2;
     grid-row: 2;
-    margin-top: 0px;
     width: 45vw;
-    margin-right: 10px;
   }
 
   .good {
@@ -359,17 +351,21 @@ and (max-width: 888px) {
     width: 46vw;
     margin-right: 0px;
   }
+
+  .spinner {
+    margin-left: 42vw;
+    margin-top: 25vw;
+  }
 }
 
 /* styles for tablets 2.5 */
 @media screen and (min-width: 510px)
 and (max-width: 630px) {
   .container {
-    background-color: initial;
     padding-top: 20px;
   }
+
   .wrapper {
-    display: grid;
     position: relative;
     grid-gap: 0px;
     grid-column-gap: 10px;
@@ -377,103 +373,96 @@ and (max-width: 630px) {
     grid-template-rows: 305px 180px;
     grid-row-gap: 4em;
     margin-left: 3em;
-    margin-bottom: 9vw;
   }
+
   .display-img {
-    position: absolute;
     width: 90vw;
     grid-column: 1/span 2;
   }
+
   .try-again, .publish {
     margin-top: 0.3em;
-    text-decoration: none;
-    color: #fff;
     font-size: 2.2vw;
-    border-radius: 6px;
-    background-color: #c75575;
-    padding: 12px 23px 12px 23px;
   }
+
   .publish {
-     position: absolute;
      margin-left: 30vw;
   }
+
   .app-title {
-    padding: 5px;
-    font-family: Helvetica;
-    font-size: 2.2vw;
+      font-size: 2.2vw;
   }
+
   .app-description {
-    font-family: Helvetica;
     font-size: 2.3vw;
-    padding: 5px;
   }
+
   .wwe, .person {
     grid-column: 1;
     grid-row: 2;
-    margin-top: 0px;
     width: 65vw;
-    margin-right: 10px;
     margin-left: 4.2em;
   }
+
   .good{
   grid-column: 1;
   grid-row: 3;
   width: 65vw;
   margin-right: 0px;
   margin-left: 4.2em;
-}
+  }
+
+  .spinner {
+    margin-left: 41vw;
+    margin-top: 24vw;
+  }
 
 }
 
 /* styles for tablets 2 */
 @media screen and (min-width: 629px)
 and (max-width: 701px) {
-  /* styles of index template*/
   .container {
-    background-color: initial;
-    /* height: 97%; */
     padding-top: 20px;
   }
   .wrapper{
-    display: grid;
     position: relative;
     grid-gap: 0px;
     grid-column-gap: 10px;
     grid-template-columns: 650fr 400fr;
     grid-template-rows: 340px 180px;
-    grid-row-gap: 4em;
+    grid-row-gap: 5em;
     margin-left: 3em;
-    margin-bottom: 9vw;
   }
 
   .display-img{
-    /border: 1px solid gainsboro;
-    position: absolute;
     width: 90vw;
     grid-column: 1/span 2;
   }
 
-  .again{
-    position: absolute;
-    /top: 479px;
+  .try-again, .publish {
+    font-size: 1.8vw;
   }
 
   .publish{
-    position: absolute;
-    /top: 479px;
-    margin-left: 19vw;
+    margin-left: 24.5vw;
   }
 
   .demo-img {
-    width: 100%;
     height: 180px;
-    padding: 10px;
+  }
+
+  .app-title {
+    font-size: 2.5vw;
+  }
+
+  .app-description {
+    font-size: 2.4vw;
   }
 
   .wwe, .person{
     grid-column: 1;
     grid-row: 2;
-    margin-top: 0px;
     width: 65vw;
     margin-right: 10px;
     margin-left: 4.2em;
@@ -486,6 +475,10 @@ and (max-width: 701px) {
     margin-right: 0px;
     margin-left: 4.2em;
   }
+  .spinner {
+    margin-left: 41vw;
+    margin-top: 24vw;
+  }
 }
 
 /* styles for tablets 3 */
@@ -493,12 +486,10 @@ and (max-width: 701px) {
 and (max-width: 509px) {
   /* styles of index template*/
   .container {
-    background-color: initial;
-    /* height: 97%; */
     padding-top: 20px;
   }
+
   .wrapper{
-    display: grid;
     position: relative;
     grid-gap: 0px;
     grid-column-gap: 10px;
@@ -506,11 +497,9 @@ and (max-width: 509px) {
     grid-template-rows: 315px 180px;
     grid-row-gap: 1.5em;
     margin-left: 1em;
-    margin-bottom: 9vw;
   }
 
   .display-img {
-    position: relative;
     grid-column: 1/span 1;
     width: 95vw;
   }
@@ -523,35 +512,24 @@ and (max-width: 509px) {
 
   .try-again, .publish {
     margin-top: 0.3em;
-    text-decoration: none;
-    color: #fff;
     font-size: 2.2vw;
-    border-radius: 6px;
-    background-color: #c75575;
-    padding: 12px 23px 12px 23px;
   }
 
   .publish {
-    position: absolute;
     margin-left: 30vw;
   }
 
   .app-title {
-    padding: 5px;
-    font-family: Helvetica;
     font-size: 2.2vw;
   }
 
   .app-description {
-    font-family: Helvetica;
     font-size: 2.3vw;
-    padding: 5px;
   }
 
   .wwe, .person {
     grid-column: 1;
     grid-row: 2;
-    margin-top: 0px;
     width: 70vw;
     margin-right: 10px;
     margin-left: 3em;
@@ -562,6 +540,10 @@ and (max-width: 509px) {
     width: 70vw;
     margin-right: 0px;
     margin-left: 3em;
+  }
+  .spinner {
+    margin-left: 41vw;
+    margin-top: 24vw;
   }
 }
 
@@ -574,85 +556,60 @@ and (max-width: 488px) {
     padding-top: 5px;
   }
    .wrapper{
-    display: grid;
     grid-gap: 0px;
     margin-left: 5px;
     grid-template-rows: 215px 80px;
     grid-template-columns: 350fr 150fr 150fr;
-    grid-row-gap: 29vw;
+    grid-row-gap: 32vw;
     margin-bottom: 5vw;
   }
 
   .display-img{
-    position: absolute;
     width: 98vw;
     grid-column: 1/span 2;
   }
 
   .try-again, .publish {
     margin-top: 0.4em;
-    text-decoration: none;
-    color: #fff;
     font-size: 2.5vw;
     border-radius: 8px;
-    background-color: #c75575;
     padding: 2vw 35vw 2vw 37vw;
     width: 100%;
   }
 
-  .again{
-    position: absolute;
-    /top: 244px;
-  }
-
   .publish{
-    position: absolute;
-    /top: 287px;
     margin-left: 0px;
     margin-top: 3.4em;
   }
 
   .demo-img {
-    width: 100%;
     height: 151px;
-    padding: 10px;
   }
 
   .spinner {
-    margin: auto;
-    margin-top: 60;
-    border: 4px solid #c75579;
-    border-bottom: 4px solid #e2e8ec;
-    border-top: 5px solid #e2e8ec;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    margin-left: 45vw;
+    margin-top: 25vw;
+    width: 30px;
+    height: 30px;
     animation: spin 1s linear infinite;
   }
 
   .app-title {
-    padding: 5px;
-    font-family: Helvetica;
-    font-size: x-small;
+    font-size: 3vw;
   }
 
   .app-description {
-    font-family: Helvetica;
-    font-size: xx-small;
-    padding: 2px;
+     font-size: 2.5vw;
   }
 
   .person, .wwe {
     grid-column: 1;
     grid-row: 2;
-    margin-top: 0px;
     width: 75vw;
-    margin-right: 10px;
     margin-left: 3em;
   }
 
   .good {
-    margin-top: 0px;
     grid-column: 1;
     grid-row: 3;
     width: 75vw;
