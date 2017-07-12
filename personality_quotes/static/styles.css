@@ -558,9 +558,9 @@ and (max-width: 488px) {
    .wrapper{
     grid-gap: 0px;
     margin-left: 5px;
-    grid-template-rows: 215px 80px;
+    grid-template-rows: 165px 80px;
     grid-template-columns: 350fr 150fr 150fr;
-    grid-row-gap: 32vw;
+    grid-row-gap: 37vw;
     margin-bottom: 5vw;
   }
 

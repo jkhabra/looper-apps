@@ -178,57 +178,58 @@
 }
 
 /* styles for tablets */
-@media screen and (min-width: 490px)
+@media screen and (min-width: 647px)
 and (max-width: 995px) {
 /* styles of index template*/
-.container {
+  .container {
     padding-bottom: 43px;
     height: 100%;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 400fr 410fr;
-    grid-template-row: 255px 255px;
+    grid-template-rows: 255px 255px;
     overflow: hidden;
     margin-left: 30px;
-}
+  }
 
-.content {
-  border: 1px solid gainsboro;
-  border-radius: 5px;
-}
+  .content {
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+  }
 
-.button-link {
-  text-decoration: none;
-  color: #3b3f3f;
-  height: 259px;
-}
+  .button-link {
+    text-decoration: none;
+    color: #3b3f3f;
+    height: 259px;
+  }
 
-.data {
-	grid-column: 1;
-}
+  .data {
+	  grid-column: 1;
+  }
 
-.demo-img {
-  width: 100%;
-  height: 200px;
-  padding: 10px;
-}
+  .demo-img {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+  }
 
-.app-title {
-  padding: 5px;
-  /*border: 1px solid gainsboro;
+  .app-title {
+    padding: 5px;
+    /*border: 1px solid gainsboro;
   border-radius: 7px;*/
-  font-family: Helvetica;
-  font-size: medium;
+    font-family: Helvetica;
+    font-size: medium;
+  }
+
+  .app-description {
+    font-family: Helvetica;
+    font-size: small;
+    padding: 5px;
+  }
 }
 
-.app-description {
-  font-family: Helvetica;
-  font-size: small;
-  padding: 5px;
-}
-}
-
-@media screen and (max-width: 648px) {
+@media screen and (min-width: 488px)
+and (max-width: 648px) {
   .container {
     height: 100%;
     display: grid;
@@ -261,13 +262,13 @@ and (max-width: 995px) {
 @media screen and (max-width: 489px) {
     .container {
       padding-top: 10px;
-      height: 110%;
+      height: 100%;
       width: auto;
       display: grid;
       grid-gap: 0vw;
-      grid-row-gap: 11vw;
+      grid-row-gap: 0vw;
       grid-template-columns: 400fr;
-      margin-left: 0px;
+      margin-left: 10px;
     }
 
     .button-link {
@@ -303,4 +304,5 @@ and (max-width: 995px) {
       font-size: 3vw;
       padding: 5px;
     }
+
  }
