@@ -53,9 +53,9 @@
     display: grid;
     grid-gap: 20px;
     grid-row-gap: 0px;
-    grid-template-columns: 370fr 370fr 370fr;
-    margin-left: 60px;
-    margin-right: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .content {
@@ -186,10 +186,9 @@ and (max-width: 995px) {
     height: 100%;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 400fr 410fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 255px 255px;
     overflow: hidden;
-    margin-left: 30px;
   }
 
   .content {
@@ -200,7 +199,6 @@ and (max-width: 995px) {
   .button-link {
     text-decoration: none;
     color: #3b3f3f;
-    height: 259px;
   }
 
   .data {
@@ -234,7 +232,7 @@ and (max-width: 648px) {
     height: 100%;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 430fr 430fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 175px 175px;
     overflow: hidden;
     margin-left: 30px;
@@ -262,20 +260,22 @@ and (max-width: 648px) {
 @media screen and (max-width: 489px) {
     .container {
       padding-top: 10px;
-      height: 100%;
       width: auto;
       display: grid;
       grid-gap: 0vw;
-      grid-row-gap: 0vw;
-      grid-template-columns: 400fr;
-      margin-left: 10px;
+      grid-row-gap: 1em;
+      grid-template-columns: 1fr;
+      grid-template-rows: 223px 223px 223px;
+      margin-left: 20px;
+      margin-right: 20px;
+      height: 48em;
     }
 
     .button-link {
       text-decoration: none;
       color: #3b3f3f;
-      height: 181px;
     }
+
     .content {
       border: 1px solid gainsboro;
       border-radius: 5px;
