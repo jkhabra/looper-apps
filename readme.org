@@ -2,9 +2,6 @@
 
 My first Python/Flask app I built for learning web development with Flask.
 
-** Screenshot
-
-[[file:LooperApps/Screen Shot 2017-07-18 at 12.43.49 PM_2017-07-18_12-55-52.png]]
 ** What?
 
 LooperApps is a collection of Facebook apps that allows people to post interesting posts on Facebook. Currently it has three Facebook apps:
@@ -65,3 +62,7 @@ I am learning python for some time so I wanted to build a real world python app.
    #+BEGIN_SRC sh
    python3 run.py web
    #+END_SRC
+
+** Screenshot
+#+DOWNLOADED: file:/Users/jatinder/Desktop/Screen Shot 2017-07-18 at 12.41.40 PM.png @ 2017-07-18 13:03:38
+[[file:LooperApps/Screen Shot 2017-07-18 at 12.41.40 PM_2017-07-18_13-03-38.png]]
