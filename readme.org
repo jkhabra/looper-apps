@@ -2,6 +2,9 @@
 
 My first Python/Flask app I built for learning web development with Flask.
 
+** Screenshot
+
+[[file:LooperApps/Screen Shot 2017-07-18 at 12.43.49 PM_2017-07-18_12-55-52.png]]
 ** What?
 
 LooperApps is a collection of Facebook apps that allows people to post interesting posts on Facebook. Currently it has three Facebook apps:
