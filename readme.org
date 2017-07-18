@@ -1,0 +1,64 @@
+* LooperApps
+
+My first Python/Flask app I built for learning web development with Flask.
+
+** What?
+
+LooperApps is a collection of Facebook apps that allows people to post interesting posts on Facebook. Currently it has three Facebook apps:
+
+- *wwe-match-maker*: app generates an image that tells to user which WWE star wanna fight with them.
+- *personality-quotes*: app generates an image that tells to user which quote describe their personality.
+- *good-qualities*: app generates an image that describe user's best seven qualities.
+
+If user doesn't like generated image than they can generate another one else they can publish on Facebook. Different apps are built as independent Flask blueprints for modular code.
+
+** Why?
+
+I am learning python for some time so I wanted to build a real world python app. I wanted to make responsive website as well.
+
+** Technologies used
+
+- Python
+- Flask
+- Facebook Graph Api
+- HTML5
+- CSS Grid layout
+- Responsive web design with CSS3 media queries
+
+** How to run this app on your system?
+
+ - Create a =virtualenv= for this project
+
+   - Install =virtualenvwrapper= with =pip=
+
+       #+BEGIN_EXAMPLE sh
+       pip install virtualenvwrapper
+       #+END_EXAMPLE
+
+       For more details on how to configure =virtualenvwrapper=, please look for instructions [[https://virtualenvwrapper.readthedocs.io/en/latest/][here]]:
+
+   - Create virtualenv for project
+
+     #+BEGIN_EXAMPLE sh
+     mkvirtualenv looperapps
+     workon looperapps # workon command activates virtualenv environment
+     #+END_EXAMPLE
+
+ - Clone the repository
+
+   #+BEGIN_SRC sh
+   git clone git@gitlab.com:jkhabra/personality-quotes.git
+   #+END_SRC
+
+   - Install project dependencies from =requirements.txt= file
+
+     #+BEGIN_SRC sh
+     workon looperapps
+     pip install -r ./requirements.txt
+     #+END_SRC
+
+ - Run the web server
+
+   #+BEGIN_SRC sh
+   python3 run.py web
+   #+END_SRC
