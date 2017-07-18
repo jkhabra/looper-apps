@@ -64,5 +64,6 @@ I am learning python for some time so I wanted to build a real world python app.
    #+END_SRC
 
 ** Screenshot
-#+DOWNLOADED: file:/Users/jatinder/Desktop/Screen Shot 2017-07-18 at 12.41.40 PM.png @ 2017-07-18 13:03:38
-[[file:LooperApps/Screen Shot 2017-07-18 at 12.41.40 PM_2017-07-18_13-03-38.png]]
+
+#+DOWNLOADED: file:/Users/jatinder/Documents/looper-apps/web/static/screenshot.png @ 2017-07-18 13:19:32
+[[file:LooperApps/screenshot_2017-07-18_13-19-32.png]]
